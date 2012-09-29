@@ -1,0 +1,216 @@
+
+<!--
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ * Author: kuffner@google.com (James Kuffner)
+ *
+ * Prototype 3D viewer for the Android Galaxy Nexus launch page (compiled).
+-->
+<html>
+  <head>
+    <!-- Make WebGL content run in Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!-- BEGIN Katamari 3d Viewer Analytics Code -->
+    <!-- <script type="text/javascript" src="//www.google.com/js/google.js"></script> -->
+    <!-- END Katamari 3d Viewer Analytics Code -->
+
+    <!-- BEGIN Katamari 3d Viewer Head Code -->
+    <script type="text/javascript">
+      // new gweb.analytics.AutoTrack({
+      //   profile: 'UA-19761916-1',
+      //   tracklinks: false
+      // });
+
+      var prime = {};
+
+      prime.extractFragmentParam = function(name) {
+        // Match a URL string argument 'name' and extract the assigned value.
+        name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
+        var regexS = '[#,]' + name + '=([^,]*)';
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.href);
+        if (results == null)
+         return null;
+        return results[1];
+      };
+
+      prime.setMode = function(mode) {
+        if (document.body) {
+          var fallbackElem = document.getElementById('viewerFallback');
+          if (mode == 'portrait') {
+            fallbackElem.className = 'viewerFallback viewerFallback-portrait';
+          } else {
+            fallbackElem.className = 'viewerFallback viewerFallback-landscape';
+          }
+          return;
+        }
+        window.setTimeout(function() {
+          prime.setMode(mode);
+        }, 10);
+      }
+
+      prime.loadScript = function() {
+        goog.loadViewerScript(function() {
+          var urlMode = prime.extractFragmentParam('mode');
+          prime.setMode(urlMode);
+          goog.initPrimeViewer(function(mode) {
+            if (urlMode && urlMode == 'portrait' &&
+                (mode == 'webgl' ||
+                 mode == 'static' ||
+                 mode == 'classic-portrait')) {
+              goog.showViewerPortrait();
+            } else if (urlMode && urlMode == 'landscape' &&
+                (mode == 'webgl' ||
+                 mode == 'static' ||
+                 mode == 'classic-landscape')) {
+              goog.showViewerLandscape();
+            } else if (!urlMode &&
+                (mode == 'webgl' ||
+                 mode == 'static' ||
+                 mode == 'classic-landscape')) {
+              // Swivel landscape Callback OR WebGL callback
+              // Show landscape as default.
+              goog.showViewerLandscape();
+            }
+          });
+        });
+      }
+
+      // This function is called when the script_loader loads. We need to do
+      // this because IE does not support script.onload!!! ARGHHHH!!!
+      function loadedScriptLoader() {
+        prime.loadScript();
+      }
+    </script>
+    <script type="text/javascript" src="./script_loader_compiled.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="prime_iframe.css"/>
+  </head>
+  <!-- END Katamari 3d Viewer Head Code -->
+
+  <!-- Katamari 3d Viewer - deferred load - loadScript(ftn callback) req'd -->
+  <body id="body" bgcolor="#FFFFFF">
+    <!-- BEGIN Katamari 3D Viewer body code -->
+    <div id="viewer" class="canvas-parent canvas-parent-land">
+      <canvas id="viewer3dCanvas" zoomLand="0.208" zoomPortrait="0.255"
+              width="1300" height="585"
+              class="centeredcanvas">
+      </canvas>
+      <img id="canvas-edge-blur" src="images/canvas-edge-blur.png"
+           class="canvas-edge-blur"/>
+    </div>
+
+    <img tabindex="0" alt="Switch to Classic view - for older browsers" id="goto-classic-button" src="images/3d-fallback.png" class="goto-classic"/>
+    <img tabindex="0" alt="Switch to 3D view - webGL required" id="goto-3d-button" src="images/3d-upgrade.png" class="goto-3d"/>
+    <img tabindex="0" alt="Download Chrome" id="dl-chrome-button" src="images/3d-fallback-chrome-dl.png" class="goto-3d"
+         onclick="window.open('http://www.google.com/chrome'); return false;"/>
+
+    <img id="viewerFallback" class="viewerFallback"
+       alt="fallback image of the phone"
+       src="//www.google.com/clear.gif">
+
+    <div id="staticFallbackLand" class="static-fallback">
+      <div class="fallback-text"
+           style="position:absolute; left:500px; top:120px; z-index:-1;">
+        <h1 class="fallback-heading">Vibrant high-definition display</h1>
+        <p>
+          Galaxy Nexus is the world's first phone with a 4.65"
+          high-definition sAMOLED display making text, videos
+          and games look crisp, vibrant and rich. With an
+          edge-to-edge 720p screen high-definition, videos
+          look amazing and the unique Contour Display curves
+          nicely to the shape of your face and makes it easier
+          to hold.
+          </p>
+        <div id="buy-button" class="fallback-buy-button">REGISTER</div>
+      </div>
+      <img src="images/static-landscape.jpg"
+           alt="vibrant high resolution display"
+           style="position:absolute; top:120px; left:0px; z-index:-2;"/>
+    </div>
+    <div id="staticFallbackPortrait" class="static-fallback">
+      <img src="images/static-portrait.jpg" alt="Galaxy Nexus phone"/>
+    </div>
+
+    <div id="zoomContainer" class="zoom-container zoom-container-land">
+      <img id="zoomHome"
+           src="./images/home-icon.png"
+           alt="model home pose">
+      <div id="sliderContainer" class="goog-slider-backdrop">
+        <img id="zoomIn" class="goog-slider-in"
+             src="./images/zoom-in.png"
+             alt="zoom model in">
+        <div id="zoomControl" class="goog-slider-horizontal">
+          <div class="goog-slider-thumb">
+            <img src="./images/zoom-slider.png" alt="Zoom slider bar">
+          </div>
+        </div>
+        <img id="zoomOut" class="goog-slider-out"
+             src="./images/zoom-out.png"
+             alt="zoom model out">
+      </div>
+    </div>
+
+    <div id="webglOverlay">
+      <img
+         id="webglRotateOverlay"
+         class="webglRotateOverlay"
+         alt="Give it a spin"
+         src="./images/rotate-overlay.png"></img>
+    </div>
+
+    <div id="outerLandscapeSwivel" class="swivel-land-outer"
+         title="Spinner in landscape mode">
+      <div id="swivelParentLand0" class="swivel-land-container"
+           srcPrefix="images/landscapey-" srcExt="jpg"
+           swivelWidth="640" swivelHeight="400"
+           numImages="36" numStrips="2" wrap="true" axis="y"></div>
+      <div id="swivelParentLand1" class="swivel-land-container"
+           srcPrefix="images/landscape-frontx-" srcExt="jpg"
+           swivelWidth="640" swivelHeight="400"
+           numImages="37" numStrips="1" wrap="false" axis="x"></div>
+      <div id="swivelParentLand2" class="swivel-land-container"
+           srcPrefix="images/landscape-backx-" srcExt="jpg"
+           swivelWidth="640" swivelHeight="400"
+           numImages="34" numStrips="1" wrap="false" axis="x"></div>
+    </div>
+    <div id="outerPortraitSwivel" class="swivel-portrait-outer"
+         title="Spinner in landscape mode">
+      <div id="swivelParentPortrait0" class="swivel-portrait-container"
+           srcPrefix="images/portraity-" srcExt="jpg"
+           swivelWidth="380" swivelHeight="500"
+           numImages="36" numStrips="2" wrap="true" axis="y"></div>
+      <div id="swivelParentPortrait1" class="swivel-portrait-container"
+           srcPrefix="images/portrait-frontx-" srcExt="jpg"
+           swivelWidth="380" swivelHeight="500"
+           numImages="34" numStrips="1" wrap="false" axis="x"></div>
+      <div id="swivelParentPortrait2" class="swivel-portrait-container"
+           srcPrefix="images/portrait-backx-" srcExt="jpg"
+           swivelWidth="380" swivelHeight="500"
+           numImages="34" numStrips="1" wrap="false" axis="x"></div>
+    </div>
+    <div id="calloutMenu" class="callout-links">
+      <div class="callout-header">Main Features</div>
+      <div tabindex="0" id="callout-display" callout="display" class="callout-button" connector-color="#10a0f0">HD Contour display</div>
+      <div tabindex="0" id="callout-screen" callout="screen" class="callout-button" connector-color="#10a0f0">Super AMOLED 720p screen</div>
+      <div tabindex="0" id="callout-softkeys" callout="softkeys" class="callout-button" connector-color="#10a0f0">Software keys</div>
+      <br><br>
+      <div tabindex="0" id="callout-volume" callout="volume" class="callout-button" connector-color="#10a0f0">Volume controls</div>
+      <div tabindex="0" id="callout-power" callout="power" class="callout-button" connector-color="#10a0f0">Power button</div>
+      <div tabindex="0" id="callout-audio" callout="audio" class="callout-button" connector-color="#10a0f0">3.5mm audio jack</div>
+      <div tabindex="0" id="callout-usb" callout="usb" class="callout-button" connector-color="#10a0f0">Video out with Micro-USB</div>
+      <br><br>
+      <div tabindex="0" id="callout-front-camera" callout="front-camera" class="callout-button" connector-color="#10a0f0">1.3MP front camera</div>
+      <div tabindex="0" id="callout-rear-camera" callout="rear-camera" class="callout-button" connector-color="#10a0f0">5MP low-light optimized rear camera</div>
+      <div tabindex="0" id="callout-flash" callout="flash" class="callout-button" connector-color="#10a0f0">Camera flash</div>
+      <br><br>
+      <div tabindex="0" id="callout-front-speaker" callout="front-speaker" class="callout-button" connector-color="#10a0f0">Front speaker</div>
+      <div tabindex="0" id="callout-rear-speaker" callout="rear-speaker" class="callout-button" connector-color="#10a0f0">Rear speaker</div>
+      <div tabindex="0" id="callout-back-cover" callout="back-cover" class="callout-button" connector-color="#10a0f0">Textured back cover</div>
+    </div>
+    <img id="ie-callout-poi" src="images/ie-callout.png" class="ie-callout"/>
+    <div id="webgl-tryitnow"></div>
+    <div id="webgl-notworking"></div>
+    <div id="embed-viewer"></div>
+    <!-- END Katamari 3D Viewer body code -->
+  </body>
+</html>

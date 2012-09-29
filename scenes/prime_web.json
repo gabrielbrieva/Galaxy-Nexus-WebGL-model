@@ -1,0 +1,299 @@
+{
+
+  "version": 1.0,
+
+
+  "decode_params": {
+    "decodeOffsets": [-4108, -2985, -738,
+                       0, 0,
+                      -511, -511, -511],
+    "decodeScales": [0.000026, 0.000026, 0.000026,
+                     0.000978, 0.000978,
+                     0.001957, 0.001957, 0.001957]
+  },
+
+
+  "objects": {
+
+
+
+
+    "phone_glass": {
+      "geometry": "phone_glass.xml",
+      "version": 2.0,
+      "material": "phone_glass",
+      "utf8_params": {
+        "attribRange": [0, 42000],
+        "indexRange": [336000, 14000],
+        "bboxes": 378000,
+        "names": ["phone_glass"],
+        "lengths": [42000]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "battery_cover": {
+      "geometry": "battery_cover.xml",
+      "version": 2.0,
+      "material": "battery_cover",
+      "utf8_params": {
+        "attribRange": [0, 30080],
+        "indexRange": [240640, 15040],
+        "bboxes": 285760,
+        "names": ["prime_reduced_battery_cover_battery_cover1"],
+        "lengths": [45120]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "camera_bezel": {
+      "geometry": "camera_bezel.xml",
+      "version": 2.0,
+      "material": "camera_bezel",
+      "utf8_params": {
+        "attribRange": [0, 33800],
+        "indexRange": [270400, 11268],
+        "bboxes": 304204,
+        "names": ["camera_bevel"],
+        "lengths": [33804]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "camera_flash": {
+      "geometry": "camera_flash.xml",
+      "version": 2.0,
+      "material": "camera_flash",
+      "utf8_params": {
+        "attribRange": [0, 1937],
+        "indexRange": [15496, 3264],
+        "bboxes": 25288,
+        "names": ["prime_cad_2_poly1:flash1"],
+        "lengths": [9792]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "camera_lens": {
+      "geometry": "camera_lens.xml",
+      "version": 2.0,
+      "material": "camera_lens",
+      "utf8_params": {
+        "attribRange": [0, 1344],
+        "indexRange": [10752, 672],
+        "bboxes": 12768,
+        "names": ["prime_cad_2_poly1:primecamera"],
+        "lengths": [2016]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "charging_pins": {
+      "geometry": "charging_pins.xml",
+      "version": 2.0,
+      "material": "charging_pins",
+      "utf8_params": {
+        "attribRange": [0, 243],
+        "indexRange": [1944, 336],
+        "bboxes": 2952,
+        "names": ["charging_contacts"],
+        "lengths": [1008]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "chrome": {
+      "geometry": "chrome.xml",
+      "version": 2.0,
+      "material": "chrome",
+      "utf8_params": {
+        "attribRange": [0, 7469],
+        "indexRange": [59752, 9147],
+        "bboxes": 87193,
+        "names": ["usb_prong", "prime_cad_2_poly1:camera_ring2", "prime_cad_2_poly1:camera_inner_ring1"],
+        "lengths": [9969, 12096, 5376]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "plastic": {
+      "geometry": "plastic.xml",
+      "version": 2.0,
+      "material": "plastic",
+      "utf8_params": {
+        "attribRange": [0, 55294],
+        "indexRange": [442352, 49779],
+        "bboxes": 787834,
+        "names": ["front_trim", "audio_jack", "power_button", "volume_controls", "usb_jack", "prime_reduced_rear_trim_prime"],
+        "lengths": [86784, 2880, 696, 828, 1446, 56703]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "plastic2": {
+      "geometry": "plastic.xml",
+      "version": 2.0,
+      "material": "plastic",
+      "utf8_params": {
+        "attribRange": [591689, 20647],
+        "indexRange": [756865, 10323],
+        "bboxes": 787870,
+        "names": ["prime_reduced_rear_trim_prime"],
+        "lengths": [30969]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "speaker": {
+      "geometry": "speaker.xml",
+      "version": 2.0,
+      "material": "speaker",
+      "utf8_params": {
+        "attribRange": [0, 4124],
+        "indexRange": [32992, 6506],
+        "bboxes": 52510,
+        "names": ["prime_reduced_front_speaker_prime", "rear_speaker"],
+        "lengths": [5292, 14226]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+        },
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    },
+    "screen": {
+      "geometry": "screen.xml",
+      "version": 2.0,
+      "material": "screen",
+      "utf8_params": {
+        "attribRange": [0, 247],
+        "indexRange": [1976, 446],
+        "bboxes": 3314,
+        "names": ["prime_reduced_phone_screen_lcd_d_phone_screen_lcd_polysurface1"],
+        "lengths": [1338]
+      },
+      "transform": {
+        "scale": [ 5.0, 5.0, 5.0 ],
+        "rotation": {
+          "angle": 180,
+          "axis": [ 0.0, 1.0, 0.0 ]
+	},
+        "translation": [ 0.0, -0.13, 0.0 ]
+      }
+    }
+  },
+
+  "materials": {
+    "battery_cover": {
+      "shader_name": "battery_cover",
+      "diffuse_map": ["battery_cover-rgb.jpg"]
+    },
+    "camera_flash": {
+      "shader_name": "camera_flash",
+      "diffuse_map": ["camera_flash-rgb.jpg"],
+      "environment_map": "environment-flash-rgb.jpg"
+    },
+    "camera_lens": {
+      "shader_name": "camera_lens",
+      "diffuse_map": ["camera_lens-rgb.jpg"],
+      "environment_map": "environment-light.png"
+    },
+    "camera_bezel": {
+      "shader_name": "camera_bezel",
+      "diffuse_map": ["camera_bezel-rgb.jpg"]
+    },
+    "charging_pins": {
+      "shader_name": "charging_pins",
+      "diffuse_map": ["charging_pins-rgb.jpg"],
+      "diffuse_color": [135, 107, 0]
+    },
+    "chrome": {
+      "shader_name": "chrome",
+      "diffuse_map": ["chrome-rgb.jpg"],
+      "diffuse_color": [5, 5, 5],
+      "environment_map": "environment-chrome-rgb.jpg"
+    },
+    "phone_glass": {
+      "shader_name": "phone_glass",
+      "diffuse_map": ["front_glass-rgb.jpg"],
+      "environment_map": "environment-light.png"
+    },
+    "plastic": {
+      "shader_name": "plastic",
+      "diffuse_map": ["plastic-rgb.jpg"],
+      "diffuse_color": [49, 49, 51]
+    },
+    "screen": {
+      "shader_name": "screen",
+      "diffuse_map": ["screen-portrait-rgb.jpg", "screen-landscape-rgb.jpg"],
+      "environment_map": "environment-light.png"
+    },
+    "speaker": {
+      "shader_name": "speaker",
+      "diffuse_map": ["speaker-rgb.jpg"],
+      "diffuse_color": [28, 28, 28],
+      "environment_map": "environment-rgb.jpg"
+    }
+  },
+
+
+  "lights": {
+  }
+}
